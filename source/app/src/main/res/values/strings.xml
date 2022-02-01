@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Simple Plateformer</string>
+    <string name="boutton_jouer">Jouer</string>
+    <string name="boutton_score">Score</string>
+    <string name="boutton_quitter">Quitter</string>
+    <string name="titre_score">Tableau des scores</string>
+</resources>

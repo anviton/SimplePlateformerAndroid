@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="../../../../../../etud/anviton/conception_d_applications_mobiles/projet/projet_conception_app_mobiles/source/app/src/main/res/layout/fenetrejeu.xml" value="0.2006340579710145" />
+        <entry key="../../../../../../etud/anviton/conception_d_applications_mobiles/projet/projet_conception_app_mobiles/source/app/src/main/res/layout/fenetresaisiscore.xml" value="0.2006340579710145" />
+        <entry key="../../../../../../etud/anviton/conception_d_applications_mobiles/projet/projet_conception_app_mobiles/source/app/src/main/res/layout/fenetrescore.xml" value="0.19739583333333333" />
+        <entry key="../../../../../../etud/anviton/conception_d_applications_mobiles/projet/projet_conception_app_mobiles/source/app/src/main/res/layout/menuprincipal.xml" value="0.19739583333333333" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
