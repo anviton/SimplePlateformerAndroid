@@ -10,16 +10,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SimplePlateformer"
         >
-        <activity android:name=".MenuPrincipal"
+        <activity android:name=".controleurs.MenuPrincipal"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".VoirScore"/>
-        <activity android:name=".SaisieScore"/>
-        <activity android:name=".Jeu"/>
+        <activity android:name=".controleurs.VoirScore"/>
+        <activity android:name=".controleurs.SaisieScore"/>
+        <activity android:name=".controleurs.Jeu"/>
     </application>
 
 </manifest>

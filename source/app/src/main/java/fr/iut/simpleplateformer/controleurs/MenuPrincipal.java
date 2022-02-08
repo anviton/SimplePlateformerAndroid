@@ -1,4 +1,4 @@
-package fr.iut.simpleplateformer;
+package fr.iut.simpleplateformer.controleurs;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -6,6 +6,8 @@ import android.view.View;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+
+import fr.iut.simpleplateformer.R;
 
 public class MenuPrincipal extends AppCompatActivity {
 
