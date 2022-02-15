@@ -1,8 +1,11 @@
-package fr.iut.simpleplateformer.modele;
+package fr.iut.simpleplateformer.modele.logique;
 
 
 import java.io.BufferedReader;
 import java.io.FileReader;
+
+import fr.iut.simpleplateformer.modele.LesScores;
+import fr.iut.simpleplateformer.modele.Score;
 
 /**
  * Classe ChargeurDeScores permet de charger les scores

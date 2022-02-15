@@ -24,6 +24,13 @@ public class VoirScore extends AppCompatActivity {
         lesScores.ajouterScore(new Score("Toto", 1, 30));
         lesScores.ajouterScore(new Score("tata", 3, 20));
         lesScores.ajouterScore(new Score("titi", 2, 10));
+        lesScores.ajouterScore(new Score("titi", 2, 10));
+        lesScores.ajouterScore(new Score("titi", 2, 10));
+        lesScores.ajouterScore(new Score("titi", 2, 10));
+        lesScores.ajouterScore(new Score("titi", 2, 10));
+        lesScores.ajouterScore(new Score("titi", 2, 10));
+        lesScores.ajouterScore(new Score("titi", 2, 10));
+        lesScores.ajouterScore(new Score("titi", 2, 10));
         setContentView(R.layout.fenetrescore);
     }
 
