@@ -4,4 +4,8 @@
     <string name="boutton_score">Score</string>
     <string name="boutton_quitter">Quitter</string>
     <string name="titre_score">Tableau des scores</string>
+    <string name="Nom">Nom :</string>
+    <string name="Niveau">Niveau :</string>
+    <string name="Temps">Temps :</string>
+    <string name="Test">Test :</string>
 </resources>
