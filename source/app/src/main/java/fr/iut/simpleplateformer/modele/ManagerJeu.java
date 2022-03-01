@@ -26,7 +26,7 @@ public class ManagerJeu {
         this.niveauLance = niveau;
         this.boucle = new Boucle();
         this.vue = vue;
-        afficheur = new AfficheurAndroid(vue, context, activite);
+        this.afficheur = new AfficheurAndroid(vue, context, activite);
     }
 
     public void initialiserLeJeu(){
@@ -35,6 +35,7 @@ public class ManagerJeu {
         listeCheminImageBloc.add("/blocs/brique_base.png");
         listeCheminImageBloc.add("/blocs/bombe.png");
         listeCheminImageBloc.add("/blocs/drapeau.png");
+
         HitBox collision = new HitBox(50, 50);
         //Personnage perso = new Personnage("Joueur", niveauLance.getPositionXDepart(),
                 //niveauLance.getPositionYDepart(), collision);
