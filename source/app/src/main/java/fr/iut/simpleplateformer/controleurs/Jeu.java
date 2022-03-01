@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.transition.Scene;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -37,6 +38,18 @@ public class Jeu extends AppCompatActivity {
         Intent monIntent = new Intent(this, SaisieScore.class);
         monIntent.putExtra("temps", temps);
         startActivity(monIntent);
+    }
+
+    public void clickJump(){
+        Log.d("inGameClicks","Jump Button Pressed");
+    }
+
+    public void clickLeft(){
+        Log.d("inGameClicks","Left Button Pressed");
+    }
+
+    public void clickRight(){
+        Log.d("inGameClicks","Right Button Pressed");
     }
     
 }
