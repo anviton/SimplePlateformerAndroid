@@ -26,7 +26,7 @@ public class Jeu extends AppCompatActivity {
         ChargeurNiveau chargeurDeNiveau = new ChargeurNiveau();
         //setContentView(R.layout.fenetrejeu);
 
-        managerJeu = new ManagerJeu(null, null , getApplicationContext(), this);
+        managerJeu = new ManagerJeu(null, this);
         managerJeu.initialiserLeJeu();
     }
 
