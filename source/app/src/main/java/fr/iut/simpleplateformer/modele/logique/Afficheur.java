@@ -26,7 +26,7 @@ public abstract class Afficheur {
      * @param cheminImagesBlocs liste des images correspondant aux blocs
      * @param peso personnage à afficher
      */
-    public abstract void afficherLeNiveau(Niveau n, List<String> cheminImagesBlocs, Personnage peso);
+    public abstract void afficherLeNiveau(Niveau n, int[]imgBloc, Personnage peso);
 
     /**
      * Met à jour l'affichage du temps
