@@ -75,7 +75,7 @@ public class Jeu extends BoucleAbstraite implements Runnable{
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            afficheur.mettreAjourLAffichageDuPersonnagePrincipal(perso, positionXAvant, positionYAvant);
+            afficheur.mettreAjourLAffichageDuPersonnagePrincipal();
             jeuEnCours = verificationVictoire(perso);
         }
         //nottifier();
@@ -88,8 +88,8 @@ public class Jeu extends BoucleAbstraite implements Runnable{
      */
     private Personnage initialiserLeJeu(){
         List<String> listeCheminImageBloc = new ArrayList<>();
-        listeCheminImageBloc.add("/blocs/blocVide.png");
-        listeCheminImageBloc.add("/blocs/briqueBase.png");
+        listeCheminImageBloc.add("/blocs/bloc_vide.png");
+        listeCheminImageBloc.add("/blocs/brique_base.png");
         listeCheminImageBloc.add("/blocs/bombe.png");
         listeCheminImageBloc.add("/blocs/drapeau.png");
         HitBox collision = new HitBox(50, 50);
