@@ -95,7 +95,7 @@ public class Jeu extends BoucleAbstraite implements Runnable{
         HitBox collision = new HitBox(50, 50);
         Personnage perso = new Personnage("Joueur", niveauLance.getPositionXDepart(),
                 niveauLance.getPositionYDepart(), collision);
-        //afficheur.afficherLeNiveau(niveauLance, listeCheminImageBloc, perso);
+        afficheur.afficherLeNiveau(niveauLance, listeCheminImageBloc, perso);
         deplaceur.setNiveau(niveauLance);
         deplaceur.deplacerPersonnagePrincipal(perso);
         jeuEnCours = true;

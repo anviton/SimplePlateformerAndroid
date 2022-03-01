@@ -11,7 +11,6 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import fr.iut.simpleplateformer.R;
@@ -24,10 +23,14 @@ import android.content.Context;
 
 public class AfficheurAndroid extends Afficheur {
 
+    private View vue;
     private VueJeu vueJeu;
+    private  Context contexte;
     private Activity activite;
 
-    public AfficheurAndroid(Activity activite) {
+    public AfficheurAndroid(View vue, Context contexte, Activity activite) {
+        this.vue = vue;
+        this.contexte = contexte;
         this.activite = activite;
     }
 
@@ -38,13 +41,15 @@ public class AfficheurAndroid extends Afficheur {
     }
 
     @Override
-    public void afficherLeNiveau(Niveau n, int[] imgBloc, Personnage peso) {
-        List<BlocGraphique> listeBlocsGraphiques = new ArrayList<>();
-        Bloc bloc = new Bloc(1,0,0, new HitBox(10,10));
-        listeBlocsGraphiques.add(new BlocGraphique(bloc,
-                activite.getApplicationContext(), imgBloc[bloc.getType()]
-        ));
-        vueJeu = new VueJeu(activite.getApplicationContext(), listeBlocsGraphiques);
+    public void afficherLeNiveau(Niveau n, List<String> cheminImagesBlocs, Personnage peso) {
+        Canvas canvas = new Canvas();
+        Bloc bloc = new Bloc(1,10,10, new HitBox(10,10));
+        BlocGraphique blocGraphique = new BlocGraphique(bloc,contexte);
+        //View vue = new View(contexte);
+        vueJeu = new VueJeu(contexte);
+        //vueJeu.onDraw(canvas, blocGraphique);
+        //img.setTranslationX(10);
+        //img.setTranslationY(10);
         activite.setContentView(vueJeu);
 
         persoPrincipale = peso;
