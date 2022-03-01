@@ -12,13 +12,13 @@ import java.util.List;
  */
 public abstract class Afficheur {
 
+    protected Personnage persoPrincipale;
+    protected double ancienPositionX;
+    protected double ancienPositionY;
     /**
      * Met à jour l'affichage du Personnage
-     * @param p personnage dont l'affichage doit être mis à jour
-     * @param ancienPositionX ancienne position X du personnage (position X lors de la dernière mise à jour)
-     * @param ancienPositionY ancienne position Y du personnage (position Y lors de la dernière mise à jour)
      */
-    public abstract void mettreAjourLAffichageDuPersonnagePrincipal(Personnage p, double ancienPositionX, double ancienPositionY);
+    public abstract void mettreAjourLAffichageDuPersonnagePrincipal();
 
     /**
      * Affiche le niveau
