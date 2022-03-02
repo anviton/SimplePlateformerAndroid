@@ -12,9 +12,17 @@
         app:srcCompat="@drawable/personnage" />
 
     <include
+        android:id="@+id/testNiveauSol"
+        layout="@layout/test_niveau"
+        android:layout_width="411dp"
+        android:layout_height="68dp"
+        app:layout_constraintBottom_toTopOf="@+id/include" />
+
+    <include
+        android:id="@+id/include"
         layout="@layout/gamepad"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="405dp"
+        android:layout_height="115dp"
         app:layout_constraintBottom_toBottomOf="parent"
         tools:layout_editor_absoluteX="1dp" />
 

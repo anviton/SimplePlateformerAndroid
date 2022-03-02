@@ -1,9 +1,7 @@
 package fr.iut.simpleplateformer;
 
-import android.animation.ObjectAnimator;
-import android.graphics.Path;
 import android.os.Bundle;
-import android.os.SystemClock;
+import android.text.Layout;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
@@ -12,13 +10,11 @@ import android.widget.ImageView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 
 import java.util.Timer;
 import java.util.TimerTask;
-
-import fr.iut.simpleplateformer.modele.metier.HitBox;
-import fr.iut.simpleplateformer.modele.metier.Personnage;
 
 public class TestDeplacement extends AppCompatActivity {
 
@@ -50,8 +46,6 @@ public class TestDeplacement extends AppCompatActivity {
     }
 
     private void init(){
-        w = this.getResources().getDisplayMetrics().widthPixels;
-        h = this.getResources().getDisplayMetrics().heightPixels;
         xMove = 0;
         yMove = 0;
         jump = false;
@@ -60,7 +54,7 @@ public class TestDeplacement extends AppCompatActivity {
         speed = 10;
         iv = (ImageView) findViewById(R.id.persoTestDeplacement);
         iv.setX(w/2);
-        iv.setY(h/2);
+        iv.setY(0);
         iv.getLayoutParams().width = 200;
         iv.getLayoutParams().height = 200;
 
@@ -100,35 +94,29 @@ public class TestDeplacement extends AppCompatActivity {
                 return false;
             }
         });
-    }
-
-    private void eventHandler() {
+        w = this.getResources().getDisplayMetrics().widthPixels;
+        h = 1500;
     }
 
     private void loop() {
-        if (iv.getX() < w-iv.getWidth()-speed && xMove == 1){
+        if (iv.getX() < w-iv.getWidth()-speed && xMove == 1){ //gestion des déplacement à droite et des collisions
             iv.setX(iv.getX()+(xMove*speed));
         }
-        else if (iv.getX() > speed && xMove == -1){
+        else if (iv.getX() > speed && xMove == -1){ //gestion des déplacement à gauche et des collisions
             iv.setX(iv.getX()+(xMove*speed));
         }
-        if (jump){
-            if (yMove < 0){
+        if (jump){ //gestion des sauts sur la phase de montée
+            if (yMove < 0 || yMove == 20){
                 jump = false;
                 yMove = 0;
-            }
-            else if (yMove == 20){
-                yMove = 19;
             }
             else if (yMove%2 == 0){
                 iv.setY(iv.getY()-(2*speed));
                 yMove += 2;
             }
-            else if (iv.getY() > h+iv.getWidth()+speed){
-                jump = false;
-                yMove = 0;
-            }
-            else {
+        }
+        else{
+            if (iv.getY() < h-iv.getHeight()){
                 iv.setY(iv.getY()+(2*speed));
                 yMove -= 2;
             }
