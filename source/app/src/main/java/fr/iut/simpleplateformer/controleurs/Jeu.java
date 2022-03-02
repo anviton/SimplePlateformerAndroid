@@ -40,16 +40,4 @@ public class Jeu extends AppCompatActivity {
         startActivity(monIntent);
     }
 
-    public void clickJump(){
-        Log.d("inGameClicks","Jump Button Pressed");
-    }
-
-    public void clickLeft(){
-        Log.d("inGameClicks","Left Button Pressed");
-    }
-
-    public void clickRight(){
-        Log.d("inGameClicks","Right Button Pressed");
-    }
-    
 }
