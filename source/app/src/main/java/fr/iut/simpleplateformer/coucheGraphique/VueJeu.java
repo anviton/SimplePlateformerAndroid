@@ -2,11 +2,7 @@ package fr.iut.simpleplateformer.coucheGraphique;
 
 import android.content.Context;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.ColorSpace;
-import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.view.SurfaceHolder;
 import android.view.View;
@@ -19,7 +15,7 @@ import fr.iut.simpleplateformer.R;
 import fr.iut.simpleplateformer.modele.metier.Bloc;
 import fr.iut.simpleplateformer.modele.metier.HitBox;
 
-public class VueJeu extends View implements SurfaceHolder.Callback {
+public class VueJeu extends View {
 
     List<BlocGraphique> listeBlocsGraphiques;
     int i;
@@ -31,11 +27,6 @@ public class VueJeu extends View implements SurfaceHolder.Callback {
 
     @Override
     public void onDrawForeground(Canvas canvas) {
-
-    }
-
-    @Override
-    protected void onDraw(Canvas canvas) {
         Paint paint = new Paint();
         paint.setTextSize(250);
         if(i==0) {
@@ -49,18 +40,4 @@ public class VueJeu extends View implements SurfaceHolder.Callback {
         i++;
     }
 
-    @Override
-    public void surfaceCreated(@NonNull SurfaceHolder surfaceHolder) {
-
-    }
-
-    @Override
-    public void surfaceChanged(@NonNull SurfaceHolder surfaceHolder, int i, int i1, int i2) {
-
-    }
-
-    @Override
-    public void surfaceDestroyed(@NonNull SurfaceHolder surfaceHolder) {
-
-    }
 }

@@ -27,7 +27,7 @@ public abstract class Afficheur extends Observateur {
      * @param cheminImagesBlocs liste des images correspondant aux blocs
      * @param peso personnage à afficher
      */
-    public abstract void afficherLeNiveau(Niveau n, int[]imgBloc, Personnage peso);
+    public abstract void afficherLeNiveau(Niveau n, int[] imgBloc, Personnage peso);
 
     /**
      * Met à jour l'affichage du temps

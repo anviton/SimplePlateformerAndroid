@@ -54,6 +54,7 @@ public class AfficheurAndroid extends Afficheur {
             ));
         }
         vueJeu = new VueJeu(activite.getApplicationContext(), listeBlocsGraphiques);
+
         activite.setContentView(vueJeu);
 
         persoPrincipale = peso;
