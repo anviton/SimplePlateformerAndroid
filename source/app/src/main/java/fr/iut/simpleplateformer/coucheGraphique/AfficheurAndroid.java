@@ -3,6 +3,7 @@ package fr.iut.simpleplateformer.coucheGraphique;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.net.Uri;
@@ -33,6 +34,7 @@ public class AfficheurAndroid extends Afficheur {
 
     @Override
     public void mettreAjourLAffichageDuPersonnagePrincipal() {
+        activite.setContentView(vueJeu);
         ancienPositionX = persoPrincipale.getPositionX();
         ancienPositionY = persoPrincipale.getPositionY();
     }
@@ -40,10 +42,17 @@ public class AfficheurAndroid extends Afficheur {
     @Override
     public void afficherLeNiveau(Niveau n, int[] imgBloc, Personnage peso) {
         List<BlocGraphique> listeBlocsGraphiques = new ArrayList<>();
-        Bloc bloc = new Bloc(1,0,0, new HitBox(10,10));
-        listeBlocsGraphiques.add(new BlocGraphique(bloc,
-                activite.getApplicationContext(), imgBloc[bloc.getType()]
-        ));
+        List<Bitmap> listeBitmap = new ArrayList<>();
+        for (int j : imgBloc) {
+            listeBitmap.add(Bitmap.createScaledBitmap(BitmapFactory.decodeResource(
+                    activite.getApplicationContext().getResources(),
+                    j), 50, 50, false));
+        }
+        for (Bloc bloc: n.getListeBlocs()) {
+            listeBlocsGraphiques.add(new BlocGraphique(bloc,
+                    activite.getApplicationContext(), listeBitmap.get(bloc.getType())
+            ));
+        }
         vueJeu = new VueJeu(activite.getApplicationContext(), listeBlocsGraphiques);
         activite.setContentView(vueJeu);
 
@@ -55,5 +64,10 @@ public class AfficheurAndroid extends Afficheur {
     @Override
     public void mettreAJourLAffichageDuTemps(int temps) {
 
+    }
+
+    @Override
+    public void mettreAJour(){
+        mettreAjourLAffichageDuPersonnagePrincipal();
     }
 }

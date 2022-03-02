@@ -1,8 +1,8 @@
 package fr.iut.simpleplateformer.modele;
 
-public class Boucle extends BoucleAbstraite implements Runnable {
+public class Boucle extends BoucleAbstraite{
 
-    private boolean jeuEnCours;
+    private boolean jeuEnCours = true;
     private Thread threadInterne;
     private static final double TPSRAFF = 1000.0/30;
 

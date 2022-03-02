@@ -11,9 +11,12 @@ import android.view.ViewGroup;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.io.File;
+
 import fr.iut.simpleplateformer.R;
 import fr.iut.simpleplateformer.modele.ManagerJeu;
 import fr.iut.simpleplateformer.modele.logique.ChargeurNiveau;
+import fr.iut.simpleplateformer.modele.metier.Niveau;
 
 public class Jeu extends AppCompatActivity {
 
@@ -26,15 +29,15 @@ public class Jeu extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         ChargeurNiveau chargeurDeNiveau = new ChargeurNiveau();
         //setContentView(R.layout.fenetrejeu);
-
-        managerJeu = new ManagerJeu(null, this);
+        File file = getDir("niveau", 0);
+        Niveau niveau = chargeurDeNiveau.chargerNiveau(file.getAbsolutePath()+"/niveau1.niv");
+        managerJeu = new ManagerJeu(niveau, this);
         managerJeu.initialiserLeJeu();
     }
 
 
     public void cliqueTestSaisieScore(View view) {
         temps = 120;
-        View vue = getCurrentFocus();
         Intent monIntent = new Intent(this, SaisieScore.class);
         monIntent.putExtra("temps", temps);
         startActivity(monIntent);

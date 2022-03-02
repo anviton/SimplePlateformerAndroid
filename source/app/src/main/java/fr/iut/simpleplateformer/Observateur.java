@@ -6,7 +6,5 @@ public abstract class Observateur {
 
     BoucleAbstraite boucle;
 
-    public void mettreAJour(){
-
-    }
+    public abstract void mettreAJour();
 }

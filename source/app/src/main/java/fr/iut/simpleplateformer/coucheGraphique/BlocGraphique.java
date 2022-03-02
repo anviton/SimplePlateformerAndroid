@@ -12,16 +12,18 @@ import fr.iut.simpleplateformer.R;
 import fr.iut.simpleplateformer.modele.metier.Bloc;
 
 public class BlocGraphique {
-    BitmapDrawable image;
+    Bitmap image;
     Bloc bloc;
 
-    public BlocGraphique(Bloc bloc, Context contexte, int id) {
+    public BlocGraphique(Bloc bloc, Context contexte,  Bitmap bitmap) {
         this.bloc = bloc;
-        Bitmap bitmap = BitmapFactory.decodeResource(contexte.getResources(), R.drawable.brique_base);
-        image = new BitmapDrawable(contexte.getResources(), bitmap);
+        /*Bitmap bitmap = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(contexte.getResources(),
+                id), 50,50, false);
+        image = new BitmapDrawable(contexte.getResources(), bitmap);*/
+        image = bitmap;
     }
 
-    public BitmapDrawable getImage() {
+    public Bitmap getImage() {
         return image;
     }
 
