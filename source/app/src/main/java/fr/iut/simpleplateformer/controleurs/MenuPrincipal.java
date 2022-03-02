@@ -8,6 +8,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import fr.iut.simpleplateformer.R;
+import fr.iut.simpleplateformer.TestDeplacement;
 
 public class MenuPrincipal extends AppCompatActivity {
 
@@ -29,6 +30,11 @@ public class MenuPrincipal extends AppCompatActivity {
 
     public void cliqueJouer(View view) {
         Intent monIntent = new Intent(this, Jeu.class);
+        startActivity(monIntent);
+    }
+
+    public void cliqueBoutonTest(View view){
+        Intent monIntent = new Intent(this, TestDeplacement.class);
         startActivity(monIntent);
     }
 }
