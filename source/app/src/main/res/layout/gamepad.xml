@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/LayoutGamepad"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
@@ -17,7 +18,6 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@drawable/left_button"
-            android:onClick="clickLeft"
             app:strokeColor="#AEAEAE"
             tools:ignore="SpeakableTextPresentCheck" />
 
@@ -27,7 +27,6 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@drawable/jump_button"
-            android:onClick="clickJump"
             app:strokeColor="#AEAEAE"
             tools:ignore="SpeakableTextPresentCheck" />
 
@@ -37,7 +36,6 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@drawable/right_button"
-            android:onClick="clickRight"
             app:strokeColor="#AEAEAE"
             tools:ignore="SpeakableTextPresentCheck" />
     </LinearLayout>

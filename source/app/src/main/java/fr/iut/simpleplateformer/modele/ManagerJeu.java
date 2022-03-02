@@ -21,11 +21,13 @@ public class ManagerJeu {
     private Deplaceur deplaceur;
     private Afficheur afficheur;
     private Niveau niveauLance;
+    private View vue;
 
     public ManagerJeu(Niveau niveau, Activity activite) {
         this.niveauLance = niveau;
         this.boucle = new Boucle();
-        afficheur = new AfficheurAndroid(activite);
+        this.vue = vue;
+        this.afficheur = new AfficheurAndroid(activite);
     }
 
     public void initialiserLeJeu(){
@@ -34,6 +36,8 @@ public class ManagerJeu {
         listeCheminImageBloc[1] = R.drawable.brique_base;
         listeCheminImageBloc[2] =  R.drawable.bombe;
         listeCheminImageBloc[3] = R.drawable.drapeau;
+
+
         HitBox collision = new HitBox(50, 50);
         Personnage perso = new Personnage("Joueur", niveauLance.getPositionXDepart(),
                 niveauLance.getPositionYDepart(), collision);

@@ -29,6 +29,7 @@ public class Jeu extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         ChargeurNiveau chargeurDeNiveau = new ChargeurNiveau();
         //setContentView(R.layout.fenetrejeu);
+
         File file = getDir("niveau", 0);
         Niveau niveau = chargeurDeNiveau.chargerNiveau(file.getAbsolutePath()+"/niveau1.niv");
         managerJeu = new ManagerJeu(niveau, this);
@@ -43,16 +44,4 @@ public class Jeu extends AppCompatActivity {
         startActivity(monIntent);
     }
 
-    public void clickJump(){
-        Log.d("inGameClicks","Jump Button Pressed");
-    }
-
-    public void clickLeft(){
-        Log.d("inGameClicks","Left Button Pressed");
-    }
-
-    public void clickRight(){
-        Log.d("inGameClicks","Right Button Pressed");
-    }
-    
 }
