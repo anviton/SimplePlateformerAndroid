@@ -1,5 +1,6 @@
 package fr.iut.simpleplateformer.modele.logique;
 
+import fr.iut.simpleplateformer.Observateur;
 import fr.iut.simpleplateformer.modele.metier.Niveau;
 import fr.iut.simpleplateformer.modele.metier.Personnage;
 
@@ -10,7 +11,7 @@ import java.util.List;
  * Classe abstraite Afficheur permet de gérer la logique d'affichage
  * @author anviton khloichet
  */
-public abstract class Afficheur {
+public abstract class Afficheur extends Observateur {
 
     protected Personnage persoPrincipale;
     protected double ancienPositionX;

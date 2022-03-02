@@ -35,13 +35,14 @@ public class ManagerJeu {
         listeCheminImageBloc[2] =  R.drawable.bombe;
         listeCheminImageBloc[3] = R.drawable.drapeau;
         HitBox collision = new HitBox(50, 50);
-        //Personnage perso = new Personnage("Joueur", niveauLance.getPositionXDepart(),
-                //niveauLance.getPositionYDepart(), collision);
-        Personnage perso = new Personnage("Joueur", 10,10, collision);
+        Personnage perso = new Personnage("Joueur", niveauLance.getPositionXDepart(),
+                niveauLance.getPositionYDepart(), collision);
+        //Personnage perso = new Personnage("Joueur", 10,10, collision);
 
         afficheur.afficherLeNiveau(niveauLance, listeCheminImageBloc, perso);
         //deplaceur.setNiveau(niveauLance);
         //deplaceur.deplacerPersonnagePrincipal(perso);
-
+        boucle.ajouter(afficheur);
+        //boucle.run();
     }
 }
