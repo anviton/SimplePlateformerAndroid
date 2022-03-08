@@ -1,63 +1,66 @@
 package fr.iut.simpleplateformer.coucheGraphique;
 
-import android.annotation.SuppressLint;
+
 import android.app.Activity;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.net.Uri;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import android.widget.ImageView;
+import android.util.DisplayMetrics;
+import android.widget.ScrollView;
+
 
 import java.util.ArrayList;
 import java.util.List;
 
+
 import fr.iut.simpleplateformer.R;
 import fr.iut.simpleplateformer.modele.logique.Afficheur;
 import fr.iut.simpleplateformer.modele.metier.Bloc;
-import fr.iut.simpleplateformer.modele.metier.HitBox;
 import fr.iut.simpleplateformer.modele.metier.Niveau;
 import fr.iut.simpleplateformer.modele.metier.Personnage;
-import android.content.Context;
+
 
 public class AfficheurAndroid extends Afficheur {
 
     private VueJeu vueJeu;
     private Activity activite;
+    private DisplayMetrics tailleEcran;
+    public static int tailleElementAffiche;
 
     public AfficheurAndroid(Activity activite) {
         this.activite = activite;
+        tailleEcran =  activite.getResources().getDisplayMetrics();
+        tailleElementAffiche = (tailleEcran.heightPixels - 250) /26;
     }
 
     @Override
     public void mettreAjourLAffichageDuPersonnagePrincipal() {
-        activite.setContentView(vueJeu);
-        ancienPositionX = persoPrincipale.getPositionX();
-        ancienPositionY = persoPrincipale.getPositionY();
+        vueJeu.postInvalidate();
     }
 
     @Override
-    public void afficherLeNiveau(Niveau n, int[] imgBloc, Personnage peso) {
+    public void afficherLeNiveau(Niveau n, int[] imgBloc, Personnage perso) {
         List<BlocGraphique> listeBlocsGraphiques = new ArrayList<>();
+        List<EntiteGraphique> listeEntiteGraphiques = new ArrayList<>();
         List<Bitmap> listeBitmap = new ArrayList<>();
-        for (int j : imgBloc) {
+        for (int image : imgBloc) {
             listeBitmap.add(Bitmap.createScaledBitmap(BitmapFactory.decodeResource(
                     activite.getApplicationContext().getResources(),
-                    j), 50, 50, false));
+                    image), tailleElementAffiche, tailleElementAffiche, false));
         }
         for (Bloc bloc: n.getListeBlocs()) {
-            listeBlocsGraphiques.add(new BlocGraphique(bloc,
-                    activite.getApplicationContext(), listeBitmap.get(bloc.getType())
+            listeBlocsGraphiques.add(new BlocGraphique(bloc, listeBitmap.get(bloc.getType())
             ));
         }
-        vueJeu = new VueJeu(activite.getApplicationContext(), listeBlocsGraphiques);
-
+        listeEntiteGraphiques.add(new EntiteGraphique(perso, Bitmap.createScaledBitmap(
+                BitmapFactory.decodeResource(activite.getApplicationContext().getResources(),
+                        R.drawable.personnage), tailleElementAffiche, tailleElementAffiche, false)));
+        vueJeu = new VueJeu(activite.getApplicationContext(), listeBlocsGraphiques,
+                listeEntiteGraphiques);
+        Bitmap fond = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(activite.getResources(),
+                R.drawable.fond_niv),tailleEcran.widthPixels,tailleEcran.heightPixels, false);
         activite.setContentView(vueJeu);
-
-        persoPrincipale = peso;
+        vueJeu.setFond(fond);
+        //Log.d("Taille view", String.valueOf(activite.getResources().getDisplayMetrics().widthPixels));
     }
 
 

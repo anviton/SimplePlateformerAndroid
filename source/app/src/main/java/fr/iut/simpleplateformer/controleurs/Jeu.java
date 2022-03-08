@@ -2,6 +2,8 @@ package fr.iut.simpleplateformer.controleurs;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.res.AssetManager;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.transition.Scene;
 import android.util.Log;
@@ -12,6 +14,8 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStream;
 
 import fr.iut.simpleplateformer.R;
 import fr.iut.simpleplateformer.modele.ManagerJeu;
@@ -28,12 +32,12 @@ public class Jeu extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ChargeurNiveau chargeurDeNiveau = new ChargeurNiveau();
-        //setContentView(R.layout.fenetrejeu);
-
-        File file = getDir("niveau", 0);
-        Niveau niveau = chargeurDeNiveau.chargerNiveau(file.getAbsolutePath()+"/niveau1.niv");
+        InputStream fileInputStream = getResources().openRawResource(R.raw.niveau1);
+        //File file = getDir("niveau", MODE_PRIVATE);
+        Niveau niveau = chargeurDeNiveau.chargerNiveau(fileInputStream);
         managerJeu = new ManagerJeu(niveau, this);
         managerJeu.initialiserLeJeu();
+        managerJeu.lancerLeJeu();
     }
 
 

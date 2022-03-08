@@ -19,6 +19,11 @@ public class Boucle extends BoucleAbstraite{
         }
     }
 
+    public void lancerBoucleDeJeu(){
+        threadInterne = new Thread(this);
+        threadInterne.start();
+    }
+
     public void setJeuEnCours(boolean jeuEnCours) {
         this.jeuEnCours = jeuEnCours;
     }

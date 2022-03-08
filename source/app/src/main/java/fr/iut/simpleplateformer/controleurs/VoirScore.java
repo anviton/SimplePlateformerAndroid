@@ -1,6 +1,8 @@
 package fr.iut.simpleplateformer.controleurs;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.util.Log;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,6 +19,7 @@ public class VoirScore extends AppCompatActivity {
     private LesScores lesScores;
     private RecyclerView recyclerView;
 
+    @SuppressLint("ResourceType")
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -14,11 +14,11 @@ public abstract class BoucleAbstraite implements Runnable{
             observateur.mettreAJour();
         }
     }
-
+    public abstract void lancerBoucleDeJeu();
     public void ajouter(Observateur o){
         listeObservateurs.add((o));
     }
-    public void retire(Observateur o){
+    public void retirer(Observateur o){
         listeObservateurs.remove(o);
     }
 }
