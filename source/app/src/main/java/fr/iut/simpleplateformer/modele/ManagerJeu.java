@@ -31,17 +31,22 @@ public class ManagerJeu {
 
     public void initialiserLeJeu(){
         int[] listeCheminImageBloc = new int[4];
+        int[] listeCheminImageBouton = new int[3];
         listeCheminImageBloc[0] = R.drawable.bloc_vide;
         listeCheminImageBloc[1] = R.drawable.brique_base;
         listeCheminImageBloc[2] =  R.drawable.bombe;
         listeCheminImageBloc[3] = R.drawable.drapeau;
+
+        listeCheminImageBouton[0] = R.drawable.jump_button;
+        listeCheminImageBouton[1] = R.drawable.left_button;
+        listeCheminImageBouton[2] =  R.drawable.right_button;
 
 
         HitBox collision = new HitBox(50, 50);
         Personnage perso = new Personnage("Joueur", niveauLance.getPositionXDepart(),
                 niveauLance.getPositionYDepart(), collision);
 
-        afficheur.afficherLeNiveau(niveauLance, listeCheminImageBloc, perso);
+        afficheur.afficherLeNiveau(niveauLance, listeCheminImageBloc, perso, listeCheminImageBouton);
         //deplaceur.setNiveau(niveauLance);
         //deplaceur.deplacerPersonnagePrincipal(perso);
     }

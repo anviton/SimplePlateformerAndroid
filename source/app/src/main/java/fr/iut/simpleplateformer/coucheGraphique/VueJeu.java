@@ -1,9 +1,12 @@
 package fr.iut.simpleplateformer.coucheGraphique;
 
+import android.app.Activity;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Paint;
+import android.util.DisplayMetrics;
+import android.view.Display;
 import android.view.View;
 
 import java.util.List;
@@ -13,14 +16,16 @@ public class VueJeu extends View {
 
     List<BlocGraphique> listeBlocsGraphiques;
     List<EntiteGraphique> listeEntitesGraphiques;
+    List<Bouton> listeBouton;
     Bitmap fond;
     private int DECALAGE = 300;
 
     public VueJeu(Context context, List<BlocGraphique> listeBlocsGraphiques,
-                  List<EntiteGraphique> listeEntitesGraphiques) {
+                  List<EntiteGraphique> listeEntitesGraphiques,List<Bouton> listeBouton) {
         super(context);
         this.listeEntitesGraphiques = listeEntitesGraphiques;
         this.listeBlocsGraphiques = listeBlocsGraphiques;
+        this.listeBouton = listeBouton;
     }
 
     @Override
@@ -38,6 +43,12 @@ public class VueJeu extends View {
             canvas.drawBitmap(bitmap, DECALAGE + entiteGraphique.getEntite().getPositionX() * AfficheurAndroid.tailleElementAffiche,
                     entiteGraphique.getEntite().getPositionY() * AfficheurAndroid.tailleElementAffiche, paint);
         }
+        int i = 0;
+        for (Bouton bouton : listeBouton) {
+            Bitmap bitmap = bouton.getImage();
+            canvas.drawBitmap(bitmap, bouton.getX(), bouton.getY(), paint);
+        }
+
     }
 
     public void setFond(Bitmap fond) {

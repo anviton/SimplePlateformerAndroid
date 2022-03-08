@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.util.DisplayMetrics;
+import android.view.Display;
 import android.widget.ScrollView;
 
 
@@ -38,9 +39,10 @@ public class AfficheurAndroid extends Afficheur {
     }
 
     @Override
-    public void afficherLeNiveau(Niveau n, int[] imgBloc, Personnage perso) {
+    public void afficherLeNiveau(Niveau n, int[] imgBloc, Personnage perso, int[] listeImageBouton) {
         List<BlocGraphique> listeBlocsGraphiques = new ArrayList<>();
         List<EntiteGraphique> listeEntiteGraphiques = new ArrayList<>();
+        List<Bouton> listeBouton = new ArrayList<>();
         List<Bitmap> listeBitmap = new ArrayList<>();
         for (int image : imgBloc) {
             listeBitmap.add(Bitmap.createScaledBitmap(BitmapFactory.decodeResource(
@@ -54,8 +56,12 @@ public class AfficheurAndroid extends Afficheur {
         listeEntiteGraphiques.add(new EntiteGraphique(perso, Bitmap.createScaledBitmap(
                 BitmapFactory.decodeResource(activite.getApplicationContext().getResources(),
                         R.drawable.personnage), tailleElementAffiche, tailleElementAffiche, false)));
+        for (int image : listeImageBouton) {
+            Bitmap b = new Bitmap();
+            listeBouton.add(new Bouton(0,0,50,50,));
+        }
         vueJeu = new VueJeu(activite.getApplicationContext(), listeBlocsGraphiques,
-                listeEntiteGraphiques);
+                listeEntiteGraphiques, listeBouton);
         Bitmap fond = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(activite.getResources(),
                 R.drawable.fond_niv),tailleEcran.widthPixels,tailleEcran.heightPixels, false);
         activite.setContentView(vueJeu);

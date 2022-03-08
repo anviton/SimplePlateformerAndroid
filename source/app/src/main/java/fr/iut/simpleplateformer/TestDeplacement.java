@@ -13,8 +13,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 
+import java.io.InputStream;
 import java.util.Timer;
 import java.util.TimerTask;
+
+import fr.iut.simpleplateformer.modele.ManagerJeu;
+import fr.iut.simpleplateformer.modele.logique.ChargeurNiveau;
+import fr.iut.simpleplateformer.modele.metier.Niveau;
 
 public class TestDeplacement extends AppCompatActivity {
 
@@ -30,12 +35,20 @@ public class TestDeplacement extends AppCompatActivity {
     boolean jump;
     int speed;
     Boolean isRunning = false;
+    private int temps;
+    private ManagerJeu managerJeu;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.test_deplacement_layout);
-        this.init();
+        ChargeurNiveau chargeurDeNiveau = new ChargeurNiveau();
+        InputStream fileInputStream = getResources().openRawResource(R.raw.niveau1);
+        //File file = getDir("niveau", MODE_PRIVATE);
+        Niveau niveau = chargeurDeNiveau.chargerNiveau(fileInputStream);
+        managerJeu = new ManagerJeu(niveau, this);
+        managerJeu.initialiserLeJeu();
+        managerJeu.lancerLeJeu();
+        /*this.init();
         Timer timer = new Timer();
         timer.scheduleAtFixedRate(new TimerTask() {
             @Override
@@ -43,6 +56,7 @@ public class TestDeplacement extends AppCompatActivity {
                 loop();
             }
         }, 0, 1000 / FPS);
+         */
     }
 
     private void init(){
