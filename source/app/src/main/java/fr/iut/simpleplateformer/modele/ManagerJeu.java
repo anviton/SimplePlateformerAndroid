@@ -21,12 +21,11 @@ public class ManagerJeu {
     private Deplaceur deplaceur;
     private Afficheur afficheur;
     private Niveau niveauLance;
-    private View vue;
+
 
     public ManagerJeu(Niveau niveau, Activity activite) {
         this.niveauLance = niveau;
         this.boucle = new Boucle();
-        this.vue = vue;
         this.afficheur = new AfficheurAndroid(activite);
     }
 
@@ -41,12 +40,14 @@ public class ManagerJeu {
         HitBox collision = new HitBox(50, 50);
         Personnage perso = new Personnage("Joueur", niveauLance.getPositionXDepart(),
                 niveauLance.getPositionYDepart(), collision);
-        //Personnage perso = new Personnage("Joueur", 10,10, collision);
 
         afficheur.afficherLeNiveau(niveauLance, listeCheminImageBloc, perso);
         //deplaceur.setNiveau(niveauLance);
         //deplaceur.deplacerPersonnagePrincipal(perso);
+    }
+
+    public void lancerLeJeu(){
         boucle.ajouter(afficheur);
-        //boucle.run();
+        boucle.lancerBoucleDeJeu();
     }
 }

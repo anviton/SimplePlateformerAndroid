@@ -20,7 +20,7 @@ public class ChargeurNiveau {
      * @param chemin chemin du niveau à charger
      * @return le Niveau chargé
      */
-    public Niveau chargerNiveau(String chemin){
+    public Niveau chargerNiveau(InputStream chemin){
         Niveau n;
         List<Bloc> listeDeBlocs = new ArrayList<>();
         List<Integer> listePositions = new ArrayList<>();
@@ -28,7 +28,8 @@ public class ChargeurNiveau {
         String elementDeSeparation = ",";
         String cheminFond = null;
         try {
-            FileReader lecteur = new FileReader(chemin);
+            InputStreamReader lecteur = new InputStreamReader(chemin);
+            //FileReader lecteur = new FileReader(chemin);
             BufferedReader lecteurDeTuile = new BufferedReader(lecteur);
             String ligne;
             cheminFond = lecteurDeTuile.readLine();

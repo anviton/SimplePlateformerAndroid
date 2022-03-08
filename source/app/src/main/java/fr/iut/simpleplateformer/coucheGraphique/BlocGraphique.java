@@ -12,11 +12,8 @@ public class BlocGraphique {
     Bitmap image;
     Bloc bloc;
 
-    public BlocGraphique(Bloc bloc, Context contexte,  Bitmap bitmap) {
+    public BlocGraphique(Bloc bloc, Bitmap bitmap) {
         this.bloc = bloc;
-        /*Bitmap bitmap = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(contexte.getResources(),
-                id), 50,50, false);
-        image = new BitmapDrawable(contexte.getResources(), bitmap);*/
         image = bitmap;
     }
 
