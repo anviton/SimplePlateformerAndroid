@@ -6,6 +6,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.util.DisplayMetrics;
 import android.view.Display;
+import android.widget.Button;
 import android.widget.ScrollView;
 
 
@@ -26,10 +27,15 @@ public class AfficheurAndroid extends Afficheur {
     private Activity activite;
     private DisplayMetrics tailleEcran;
     public static int tailleElementAffiche;
+    private static int hBouton;
+    private static int wBouton;
 
     public AfficheurAndroid(Activity activite) {
         this.activite = activite;
         tailleEcran =  activite.getResources().getDisplayMetrics();
+        wBouton = tailleEcran.widthPixels / 3;
+        hBouton = 50;
+        tailleEcran.heightPixels -= 50;
         tailleElementAffiche = (tailleEcran.heightPixels - 250) /26;
     }
 
@@ -57,8 +63,12 @@ public class AfficheurAndroid extends Afficheur {
                 BitmapFactory.decodeResource(activite.getApplicationContext().getResources(),
                         R.drawable.personnage), tailleElementAffiche, tailleElementAffiche, false)));
         for (int image : listeImageBouton) {
-            Bitmap b = new Bitmap();
-            listeBouton.add(new Bouton(0,0,50,50,));
+            Bouton bouton = new Bouton(tailleEcran.heightPixels,wBouton * listeBouton.size(),hBouton,wBouton);
+            Bitmap b = Bitmap.createScaledBitmap(
+                    BitmapFactory.decodeResource(activite.getApplicationContext().getResources(),
+                            image), bouton.getX(), bouton.getY(), false);
+            bouton.setImage(b);
+            listeBouton.add(bouton);
         }
         vueJeu = new VueJeu(activite.getApplicationContext(), listeBlocsGraphiques,
                 listeEntiteGraphiques, listeBouton);
