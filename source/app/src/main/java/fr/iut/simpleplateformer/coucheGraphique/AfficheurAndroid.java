@@ -2,11 +2,14 @@ package fr.iut.simpleplateformer.coucheGraphique;
 
 
 import android.app.Activity;
+import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.drawable.Drawable;
 import android.util.DisplayMetrics;
 import android.view.Display;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ScrollView;
 
 
@@ -33,9 +36,9 @@ public class AfficheurAndroid extends Afficheur {
     public AfficheurAndroid(Activity activite) {
         this.activite = activite;
         tailleEcran =  activite.getResources().getDisplayMetrics();
-        wBouton = tailleEcran.widthPixels / 3;
-        hBouton = 50;
-        tailleEcran.heightPixels -= 50;
+        wBouton = 50;
+        hBouton = tailleEcran.widthPixels / 3;
+        tailleEcran.heightPixels -= hBouton;
         tailleElementAffiche = (tailleEcran.heightPixels - 250) /26;
     }
 
@@ -48,8 +51,8 @@ public class AfficheurAndroid extends Afficheur {
     public void afficherLeNiveau(Niveau n, int[] imgBloc, Personnage perso, int[] listeImageBouton) {
         List<BlocGraphique> listeBlocsGraphiques = new ArrayList<>();
         List<EntiteGraphique> listeEntiteGraphiques = new ArrayList<>();
-        List<Bouton> listeBouton = new ArrayList<>();
         List<Bitmap> listeBitmap = new ArrayList<>();
+        List<ImageButton> listeBouton = new ArrayList<>();
         for (int image : imgBloc) {
             listeBitmap.add(Bitmap.createScaledBitmap(BitmapFactory.decodeResource(
                     activite.getApplicationContext().getResources(),
@@ -63,13 +66,15 @@ public class AfficheurAndroid extends Afficheur {
                 BitmapFactory.decodeResource(activite.getApplicationContext().getResources(),
                         R.drawable.personnage), tailleElementAffiche, tailleElementAffiche, false)));
         for (int image : listeImageBouton) {
-            Bouton bouton = new Bouton(tailleEcran.heightPixels,wBouton * listeBouton.size(),hBouton,wBouton);
-            Bitmap b = Bitmap.createScaledBitmap(
-                    BitmapFactory.decodeResource(activite.getApplicationContext().getResources(),
-                            image), bouton.getX(), bouton.getY(), false);
-            bouton.setImage(b);
+            ImageButton bouton = new ImageButton(activite.getApplicationContext());
+            bouton.setImageBitmap(Bitmap.createScaledBitmap(BitmapFactory.decodeResource(
+                    activite.getApplicationContext().getResources(),
+                    image), tailleElementAffiche, tailleElementAffiche, false));
             listeBouton.add(bouton);
+
         }
+//        vueJeu = new VueJeu(activite.getApplicationContext(), listeBlocsGraphiques,
+//                listeEntiteGraphiques);
         vueJeu = new VueJeu(activite.getApplicationContext(), listeBlocsGraphiques,
                 listeEntiteGraphiques, listeBouton);
         Bitmap fond = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(activite.getResources(),

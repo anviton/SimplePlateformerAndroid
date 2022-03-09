@@ -1,5 +1,7 @@
 package fr.iut.simpleplateformer.modele.logique;
 
+import android.graphics.drawable.Drawable;
+
 import fr.iut.simpleplateformer.Observateur;
 import fr.iut.simpleplateformer.modele.metier.Niveau;
 import fr.iut.simpleplateformer.modele.metier.Personnage;

@@ -41,14 +41,7 @@ public class TestDeplacement extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ChargeurNiveau chargeurDeNiveau = new ChargeurNiveau();
-        InputStream fileInputStream = getResources().openRawResource(R.raw.niveau1);
-        //File file = getDir("niveau", MODE_PRIVATE);
-        Niveau niveau = chargeurDeNiveau.chargerNiveau(fileInputStream);
-        managerJeu = new ManagerJeu(niveau, this);
-        managerJeu.initialiserLeJeu();
-        managerJeu.lancerLeJeu();
-        /*this.init();
+        this.init();
         Timer timer = new Timer();
         timer.scheduleAtFixedRate(new TimerTask() {
             @Override
@@ -56,7 +49,6 @@ public class TestDeplacement extends AppCompatActivity {
                 loop();
             }
         }, 0, 1000 / FPS);
-         */
     }
 
     private void init(){
@@ -67,7 +59,7 @@ public class TestDeplacement extends AppCompatActivity {
         FPS = 60;
         speed = 10;
         iv = (ImageView) findViewById(R.id.persoTestDeplacement);
-        iv.setX(w/2);
+        iv.setX(500);
         iv.setY(0);
         iv.getLayoutParams().width = 200;
         iv.getLayoutParams().height = 200;

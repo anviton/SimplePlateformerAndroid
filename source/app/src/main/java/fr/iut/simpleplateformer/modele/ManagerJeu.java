@@ -2,6 +2,7 @@ package fr.iut.simpleplateformer.modele;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -37,8 +38,8 @@ public class ManagerJeu {
         listeCheminImageBloc[2] =  R.drawable.bombe;
         listeCheminImageBloc[3] = R.drawable.drapeau;
 
-        listeCheminImageBouton[0] = R.drawable.jump_button;
-        listeCheminImageBouton[1] = R.drawable.left_button;
+        listeCheminImageBouton[1] = R.drawable.jump_button;
+        listeCheminImageBouton[0] = R.drawable.left_button;
         listeCheminImageBouton[2] =  R.drawable.right_button;
 
 
