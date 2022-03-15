@@ -48,4 +48,16 @@ public class Jeu extends AppCompatActivity {
         startActivity(monIntent);
     }
 
+    public void cliqueDeplacementAGauche(View view){
+        managerJeu.getDeplaceur().seDeplacerAGauche(managerJeu.getPersonnagePrincipal());
+    }
+
+    public void cliqueDeplacementADroite(View view){
+        managerJeu.getDeplaceur().seDeplacerADroite(managerJeu.getPersonnagePrincipal());
+    }
+
+    public void cliquePourSaut(View view){
+        managerJeu.getDeplaceur().sauter(managerJeu.getPersonnagePrincipal());
+    }
+
 }

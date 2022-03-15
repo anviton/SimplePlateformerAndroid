@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import fr.iut.simpleplateformer.R;
+import fr.iut.simpleplateformer.coucheGraphique.DeplaceurAndroid;
 import fr.iut.simpleplateformer.modele.logique.Afficheur;
 import fr.iut.simpleplateformer.coucheGraphique.AfficheurAndroid;
 import fr.iut.simpleplateformer.modele.logique.Deplaceur;
@@ -18,7 +19,8 @@ import fr.iut.simpleplateformer.modele.metier.Personnage;
 
 public class ManagerJeu {
     public BoucleAbstraite boucle;
-    private Deplaceur deplaceur;
+    private DeplaceurAndroid deplaceur;
+    private Personnage personnagePrincipal;
     private Afficheur afficheur;
     private Niveau niveauLance;
 
@@ -27,6 +29,14 @@ public class ManagerJeu {
         this.niveauLance = niveau;
         this.boucle = new Boucle();
         this.afficheur = new AfficheurAndroid(activite);
+    }
+
+    public DeplaceurAndroid getDeplaceur() {
+        return deplaceur;
+    }
+
+    public Personnage getPersonnagePrincipal() {
+        return personnagePrincipal;
     }
 
     public void initialiserLeJeu(){
@@ -38,10 +48,10 @@ public class ManagerJeu {
 
 
         HitBox collision = new HitBox(50, 50);
-        Personnage perso = new Personnage("Joueur", niveauLance.getPositionXDepart(),
+         personnagePrincipal = new Personnage("Joueur", niveauLance.getPositionXDepart(),
                 niveauLance.getPositionYDepart(), collision);
 
-        afficheur.afficherLeNiveau(niveauLance, listeCheminImageBloc, perso);
+        afficheur.afficherLeNiveau(niveauLance, listeCheminImageBloc, personnagePrincipal);
         //deplaceur.setNiveau(niveauLance);
         //deplaceur.deplacerPersonnagePrincipal(perso);
     }

@@ -24,12 +24,23 @@ public class AfficheurAndroid extends Afficheur {
     private VueJeu vueJeu;
     private Activity activite;
     private DisplayMetrics tailleEcran;
-    public static int tailleElementAffiche;
+    public int tailleElementAffiche;
+    private int decalage;
 
     public AfficheurAndroid(Activity activite) {
         this.activite = activite;
         tailleEcran =  activite.getResources().getDisplayMetrics();
         tailleElementAffiche = (tailleEcran.heightPixels - 250) /26;
+        decalage = (tailleEcran.widthPixels - tailleElementAffiche*38) / 2;
+    }
+
+
+    public int getTailleElementAffiche() {
+        return tailleElementAffiche;
+    }
+
+    public int getDecalage() {
+        return decalage;
     }
 
     @Override
@@ -55,12 +66,11 @@ public class AfficheurAndroid extends Afficheur {
                 BitmapFactory.decodeResource(activite.getApplicationContext().getResources(),
                         R.drawable.personnage), tailleElementAffiche, tailleElementAffiche, false)));
         vueJeu = new VueJeu(activite.getApplicationContext(), listeBlocsGraphiques,
-                listeEntiteGraphiques);
+                listeEntiteGraphiques, this);
         Bitmap fond = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(activite.getResources(),
                 R.drawable.fond_niv),tailleEcran.widthPixels,tailleEcran.heightPixels, false);
         activite.setContentView(vueJeu);
         vueJeu.setFond(fond);
-        //Log.d("Taille view", String.valueOf(activite.getResources().getDisplayMetrics().widthPixels));
     }
 
 

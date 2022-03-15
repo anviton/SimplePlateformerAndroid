@@ -15,6 +15,7 @@ import fr.iut.simpleplateformer.modele.metier.Personnage;
  */
 public class CollisionneurClassique extends Collisionneur{
 
+
     @Override
     public boolean verifCollisionAGauche(Personnage perso, Niveau niveau){
         boolean collision = true;
