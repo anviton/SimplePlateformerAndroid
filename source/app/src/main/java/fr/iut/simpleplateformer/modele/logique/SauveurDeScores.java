@@ -4,6 +4,9 @@ package fr.iut.simpleplateformer.modele.logique;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
 
 import fr.iut.simpleplateformer.modele.LesScores;
 import fr.iut.simpleplateformer.modele.Score;
@@ -17,11 +20,11 @@ public class SauveurDeScores {
     /**
      * Sauvegarde les scores
      * @param lesScores scores à sauvegarder
-     * @param nomFichier chemin du fichier dans lequel les scores vont être sauvegardés
+     * @param fichier fichier dans lequel les scores vont être sauvegardés
      */
-    public void sauver(LesScores lesScores, String nomFichier){
+    public void sauver(LesScores lesScores, OutputStream fichier){
         try {
-            FileWriter auteur = new FileWriter(nomFichier);
+            OutputStreamWriter auteur = new OutputStreamWriter(fichier);
             BufferedWriter auteurDeScores = new BufferedWriter(auteur);
             for (Score score : lesScores.getListeScores()) {
                 auteurDeScores.write(score.getNom() + ",");

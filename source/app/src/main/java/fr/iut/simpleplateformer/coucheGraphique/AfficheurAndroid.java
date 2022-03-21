@@ -24,7 +24,7 @@ public class AfficheurAndroid extends Afficheur {
     private VueJeu vueJeu;
     private Activity activite;
     private DisplayMetrics tailleEcran;
-    public int tailleElementAffiche;
+    private int tailleElementAffiche;
     private int decalage;
 
     public AfficheurAndroid(Activity activite) {
