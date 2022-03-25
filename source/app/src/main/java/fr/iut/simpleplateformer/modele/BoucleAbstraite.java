@@ -7,7 +7,8 @@ import fr.iut.simpleplateformer.Observateur;
 
 public abstract class BoucleAbstraite implements Runnable{
     private List<Observateur> listeObservateurs = new ArrayList<>();
-    //public int i;
+    protected boolean jeuEnCours = true;
+
 
     public void notifier(){
         for(Observateur observateur : listeObservateurs){
@@ -20,5 +21,8 @@ public abstract class BoucleAbstraite implements Runnable{
     }
     public void retirer(Observateur o){
         listeObservateurs.remove(o);
+    }
+    public void setJeuEnCours(boolean jeuEnCours) {
+        this.jeuEnCours = jeuEnCours;
     }
 }

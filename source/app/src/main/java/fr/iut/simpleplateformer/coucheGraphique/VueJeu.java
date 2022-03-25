@@ -19,6 +19,7 @@ public class VueJeu extends View {
     List<EntiteGraphique> listeEntitesGraphiques;
     Bitmap fond;
     AfficheurAndroid afficheurAndroid;
+    private int temps;
 
     public VueJeu(Context context, List<BlocGraphique> listeBlocsGraphiques,
                   List<EntiteGraphique> listeEntitesGraphiques, AfficheurAndroid afficheur) {
@@ -26,6 +27,7 @@ public class VueJeu extends View {
         this.afficheurAndroid = afficheur;
         this.listeEntitesGraphiques = listeEntitesGraphiques;
         this.listeBlocsGraphiques = listeBlocsGraphiques;
+        temps = 0;
     }
 
     @Override
@@ -43,6 +45,8 @@ public class VueJeu extends View {
             canvas.drawBitmap(bitmap, afficheurAndroid.getDecalage() + entiteGraphique.getEntite().getPositionX() * afficheurAndroid.getTailleElementAffiche(),
                     entiteGraphique.getEntite().getPositionY() * afficheurAndroid.getTailleElementAffiche(), paint);
         }
+        paint.setTextSize(250);
+        canvas.drawText(String.valueOf(temps), 250 ,250, paint);
         //test();
     }
 
@@ -60,6 +64,10 @@ public class VueJeu extends View {
 
     @Override
     protected void onLayout(boolean b, int i, int i1, int i2, int i3) {
+    }
+
+    public void augmenterTemps() {
+        temps++;
     }
 }
 

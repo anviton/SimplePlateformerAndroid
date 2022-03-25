@@ -91,6 +91,7 @@ public class TestDeplacement extends AppCompatActivity {
                 else{
                     xMove = 0;
                 }
+                System.out.println("tototfgvcb");
                 return false;
             }
         });

@@ -31,8 +31,6 @@ public abstract class Afficheur extends Observateur {
 
     /**
      * Met à jour l'affichage du temps
-     * @param temps temps à afficher
      */
-    public abstract void mettreAJourLAffichageDuTemps(int temps);
-
+    public abstract void mettreAJourLAffichageDuTemps();
 }

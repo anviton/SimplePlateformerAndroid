@@ -57,17 +57,17 @@ public class Jeu extends BoucleAbstraite implements Runnable{
             double positionXAvant = perso.getPositionX();
             double positionYAvant = perso.getPositionY();
             compt++;
-            gravite = deplaceur.gererLaGravite(perso);
+            /*gravite = deplaceur.gererLaGravite(perso);
             if (gravite) {
                 if(compt >= TPSRAFF/vitesseChute) {
                     perso.setPositionY(perso.getPositionY() + 1);
                     compt = 0;
                 }
-            }
+            }*/
             if (chronoIndicateur == 30){
                 chrono++;
                 chronoIndicateur = 0;
-                afficheur.mettreAJourLAffichageDuTemps(chrono);
+                afficheur.mettreAJourLAffichageDuTemps();
             }
             chronoIndicateur++;
             try {

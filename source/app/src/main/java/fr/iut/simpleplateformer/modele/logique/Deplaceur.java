@@ -1,11 +1,14 @@
 package fr.iut.simpleplateformer.modele.logique;
 
 
+import fr.iut.simpleplateformer.Observateur;
+import fr.iut.simpleplateformer.modele.ManagerJeu;
 import fr.iut.simpleplateformer.modele.metier.Niveau;
 import fr.iut.simpleplateformer.modele.metier.Personnage;
 
-public abstract class Deplaceur {
+public abstract class Deplaceur extends Observateur {
     protected Niveau niveau;
+    protected ManagerJeu managerJeu;
 
     public void setNiveau(Niveau niveau) {
         this.niveau = niveau;
@@ -22,5 +25,10 @@ public abstract class Deplaceur {
      * @param perso personnage sur lequel il faut g
      * @return true si le personnage est sur un bloc, false sinon
      */
-    public abstract boolean gererLaGravite(Personnage perso);
+    public abstract void gererLaGravite(Personnage perso);
+
+    @Override
+    public void mettreAJour() {
+        gererLaGravite(managerJeu.getPersonnagePrincipal());
+    }
 }
