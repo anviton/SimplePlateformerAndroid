@@ -70,7 +70,7 @@ public class MenuPrincipal extends AppCompatActivity {
     }
 
     public void cliqueQuitter(View view) {
-        this.finish();
+        System.exit(0);
     }
 
 

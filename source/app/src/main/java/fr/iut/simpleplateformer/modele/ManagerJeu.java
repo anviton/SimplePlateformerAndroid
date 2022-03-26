@@ -42,14 +42,15 @@ public class ManagerJeu extends Observateur {
         this.lesScores = lesScores;
     }
 
-    public DeplaceurAndroid getDeplaceur() {
-        return deplaceur;
-    }
 
     public Personnage getPersonnagePrincipal() {
         return personnagePrincipal;
     }
 
+    /**
+     * Permet d'initialiser le jeu en créant le personnage et en donnant
+     * à l'afficheur et au déplaceur ce qu'ils ont besoin
+     */
     public void initialiserLeJeu(){
         int[] listeCheminImageBloc = new int[4];
         miseEnPlaceDesDEplacments();
@@ -58,7 +59,6 @@ public class ManagerJeu extends Observateur {
         listeCheminImageBloc[2] =  R.drawable.bombe;
         listeCheminImageBloc[3] = R.drawable.drapeau;
 
-
         HitBox collision = new HitBox(50, 50);
          personnagePrincipal = new Personnage("Joueur", niveauLance.getPositionXDepart(),
                 niveauLance.getPositionYDepart(), collision);
@@ -66,6 +66,10 @@ public class ManagerJeu extends Observateur {
         afficheur.afficherLeNiveau(niveauLance, listeCheminImageBloc, personnagePrincipal);
     }
 
+    /**
+     * Abonne les observateurs à la boucle de jeu
+     * Démarre la boucle de jeu
+     */
     public void lancerLeJeu(){
         boucle.ajouter(afficheur);
         boucle.ajouter(deplaceur);
@@ -73,6 +77,9 @@ public class ManagerJeu extends Observateur {
         boucle.lancerBoucleDeJeu();
     }
 
+    /**
+     * Création des boutons et mise en place de leur action
+     */
     @SuppressLint("ClickableViewAccessibility")
     private void miseEnPlaceDesDEplacments(){
         this.deplaceur = new DeplaceurAndroid(this);
@@ -112,11 +119,19 @@ public class ManagerJeu extends Observateur {
         this.afficheur = new AfficheurAndroid(activite, lesBoutons);
     }
 
+    /**
+     * Vérifie que la position du perso est la même que celle de l'arrivée du niveau
+     * @param perso personnage dont la position doit être vérifiée
+     * @return true si postion personnage ègale à celle de l'arrivée, false sinon
+     */
     private boolean verificationVictoire(Personnage perso){
         return niveauLance.getPositionXArrivee() == perso.getPositionX() &&
                 niveauLance.getPositionYArrivee() == perso.getPositionY();
     }
 
+    /**
+     * Met à jour le manager en vérifiant la position du personnage principal
+     */
     @Override
     public void mettreAJour() {
         if(verificationVictoire(personnagePrincipal)){
