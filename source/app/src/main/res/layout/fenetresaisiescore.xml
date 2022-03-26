@@ -24,4 +24,24 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
+
+    <TextView
+        android:id="@+id/textniveau"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textviewtemps" />
+
+    <Button
+        android:id="@+id/button_score"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="cliqueValiderScore"
+        android:text="@string/boutton_score"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textniveau"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

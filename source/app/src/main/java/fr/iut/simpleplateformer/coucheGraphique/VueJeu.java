@@ -19,6 +19,7 @@ public class VueJeu extends View {
     List<EntiteGraphique> listeEntitesGraphiques;
     Bitmap fond;
     AfficheurAndroid afficheurAndroid;
+
     private int temps;
 
     public VueJeu(Context context, List<BlocGraphique> listeBlocsGraphiques,
@@ -46,17 +47,9 @@ public class VueJeu extends View {
                     entiteGraphique.getEntite().getPositionY() * afficheurAndroid.getTailleElementAffiche(), paint);
         }
         paint.setTextSize(250);
-        canvas.drawText(String.valueOf(temps), 250 ,250, paint);
-        //test();
+        canvas.drawText(String.valueOf(temps), 300 ,250, paint);
     }
 
-    private  void test(){
-        ArrayList<View> liste = new ArrayList<>();
-        Button buttonSaut =  new Button(getContext());
-        Button buttonSaut2 =  new Button(getContext());
-        Button buttonGauche =  new Button(getContext());
-        Button buttonDroit=  new Button(getContext());
-    }
 
     public void setFond(Bitmap fond) {
         this.fond = fond;
@@ -68,6 +61,10 @@ public class VueJeu extends View {
 
     public void augmenterTemps() {
         temps++;
+    }
+
+    public int getTemps() {
+        return temps;
     }
 }
 

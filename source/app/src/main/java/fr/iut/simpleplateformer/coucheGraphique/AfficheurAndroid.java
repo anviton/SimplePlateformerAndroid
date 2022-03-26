@@ -37,6 +37,7 @@ public class AfficheurAndroid extends Afficheur {
     private int decalage;
     private FrameLayout vueFenetreJeu;
     private int compteurTemps;
+    private static int MULTIPLICATEURBOUTON = 7;
     private List<Button> lesBoutons;
 
     public AfficheurAndroid(Activity activite, List<Button> lesBoutons) {
@@ -59,7 +60,6 @@ public class AfficheurAndroid extends Afficheur {
     @Override
     public void mettreAjourLAffichageDuPersonnagePrincipal() {
         vueJeu.postInvalidate();
-        mettreAJourLAffichageDuTemps();
     }
 
     @Override
@@ -87,17 +87,6 @@ public class AfficheurAndroid extends Afficheur {
         vueFenetreJeu.addView(vueJeu);
         activite.setContentView(vueFenetreJeu);
         mettreEnPlaceLAffichageDesBoutons();
-        /*Button bouton = new Button(activite);
-        bouton.setText("<");
-        bouton.setOnTouchListener((view, motionEvent) -> {
-            perso.setPositionX(perso.getPositionX() + 1);
-            return false;
-        });
-        bouton.setX(0);
-        bouton.setY(tailleEcran.heightPixels-200*2);
-        //bouton.setBackgroundColor(Color.blue(1));
-        vueFenetreJeu.addView(bouton, new FrameLayout.LayoutParams(tailleElementAffiche*4,tailleElementAffiche*4));
-      //activite.getLayoutInflater().inflate(R.layout.gamepad, vueFenetreJeu);*/
         vueJeu.setFond(fond);
 
         compteurTemps = 0;
@@ -106,15 +95,16 @@ public class AfficheurAndroid extends Afficheur {
     public void mettreEnPlaceLAffichageDesBoutons(){
         lesBoutons.get(0).setX(0);
         lesBoutons.get(1).setX(0);
-        lesBoutons.get(0).setY(tailleEcran.heightPixels-tailleElementAffiche*4*3);
+        lesBoutons.get(0).setY(tailleEcran.heightPixels-tailleElementAffiche*MULTIPLICATEURBOUTON*2);
         lesBoutons.get(1).setY(0);
-        lesBoutons.get(2).setX(tailleEcran.widthPixels-tailleElementAffiche*4);
-        lesBoutons.get(3).setX(tailleEcran.widthPixels-tailleElementAffiche*4);
-        lesBoutons.get(2).setY(tailleEcran.heightPixels-tailleElementAffiche*4*3);
+        lesBoutons.get(2).setX(tailleEcran.widthPixels-tailleElementAffiche*MULTIPLICATEURBOUTON);
+        lesBoutons.get(3).setX(tailleEcran.widthPixels-tailleElementAffiche*MULTIPLICATEURBOUTON);
+        lesBoutons.get(2).setY(tailleEcran.heightPixels-tailleElementAffiche*MULTIPLICATEURBOUTON*2);
         lesBoutons.get(3).setY(0);
         for (Button bouton: lesBoutons) {
-            vueFenetreJeu.addView(bouton, new FrameLayout.LayoutParams(tailleElementAffiche*4,
-                    tailleElementAffiche*4));
+            vueFenetreJeu.addView(bouton, new FrameLayout.LayoutParams(
+                    tailleElementAffiche*MULTIPLICATEURBOUTON,
+                    tailleElementAffiche*MULTIPLICATEURBOUTON));
         }
     }
 
@@ -130,7 +120,13 @@ public class AfficheurAndroid extends Afficheur {
     }
 
     @Override
+    public int recupererLeTemps() {
+        return vueJeu.getTemps();
+    }
+
+    @Override
     public void mettreAJour(){
         mettreAjourLAffichageDuPersonnagePrincipal();
+        mettreAJourLAffichageDuTemps();
     }
 }

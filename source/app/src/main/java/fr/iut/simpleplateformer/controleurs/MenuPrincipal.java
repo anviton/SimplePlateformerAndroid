@@ -22,6 +22,7 @@ import java.io.OutputStream;
 import fr.iut.simpleplateformer.R;
 import fr.iut.simpleplateformer.TestDeplacement;
 import fr.iut.simpleplateformer.modele.LesScores;
+import fr.iut.simpleplateformer.modele.Score;
 import fr.iut.simpleplateformer.modele.logique.ChargeurDeScores;
 import fr.iut.simpleplateformer.modele.logique.SauveurDeScores;
 
@@ -65,9 +66,7 @@ public class MenuPrincipal extends AppCompatActivity {
     }
 
     public void cliqueScore(View view) {
-        Intent monIntent = new Intent(this, VoirScore.class);
-        monIntent.putExtra("lesScores", (Parcelable) lesScores);
-        startActivity(monIntent);
+        startActivity(passagDesScores(VoirScore.class));
     }
 
     public void cliqueQuitter(View view) {
@@ -76,12 +75,17 @@ public class MenuPrincipal extends AppCompatActivity {
 
 
     public void cliqueJouer(View view) {
-        Intent monIntent = new Intent(this, Jeu.class);
-        startActivity(monIntent);
+        startActivity(passagDesScores(Jeu.class));
     }
 
     public void cliqueBoutonTest(View view){
         Intent monIntent = new Intent(this, TestDeplacement.class);
         startActivity(monIntent);
+    }
+
+    private Intent passagDesScores(Class classe){
+        Intent monIntent = new Intent(this, classe);
+        monIntent.putExtra("lesScores", (Parcelable) lesScores);
+        return monIntent;
     }
 }
