@@ -1,30 +1,24 @@
-package fr.iut.simpleplateformer.controleurs;
+package fr.iut.simpleplateformer.activites;
 
-import android.annotation.SuppressLint;
-import android.content.Intent;
 import android.content.pm.ActivityInfo;
-import android.content.res.AssetManager;
-import android.content.res.Resources;
 import android.os.Bundle;
-import android.transition.Scene;
-import android.util.Log;
-import android.view.View;
-import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.InputStream;
 
 import fr.iut.simpleplateformer.R;
 import fr.iut.simpleplateformer.modele.LesScores;
-import fr.iut.simpleplateformer.modele.ManagerJeu;
+import fr.iut.simpleplateformer.ManagerJeu;
 import fr.iut.simpleplateformer.modele.logique.ChargeurNiveau;
 import fr.iut.simpleplateformer.modele.metier.Niveau;
 
+/**
+ * Classe Jeu qui permet de gére le jeu
+ * @author anviton flgaugirard
+ */
 public class Jeu extends AppCompatActivity {
 
 

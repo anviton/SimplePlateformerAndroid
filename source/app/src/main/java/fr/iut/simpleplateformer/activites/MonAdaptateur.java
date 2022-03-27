@@ -1,4 +1,4 @@
-package fr.iut.simpleplateformer;
+package fr.iut.simpleplateformer.activites;
 
 import android.view.View;
 import android.view.ViewGroup;
@@ -7,9 +7,14 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
+import fr.iut.simpleplateformer.R;
 import fr.iut.simpleplateformer.modele.LesScores;
 import fr.iut.simpleplateformer.modele.Score;
 
+/**
+ * Classe MonAdaptateur gére la liste des score affichée
+ * @author anviton flgaugirard
+ */
 public class MonAdaptateur extends RecyclerView.Adapter {
 
     private LesScores lesScores;

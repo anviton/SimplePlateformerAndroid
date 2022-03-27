@@ -1,4 +1,4 @@
-package fr.iut.simpleplateformer.controleurs;
+package fr.iut.simpleplateformer.activites;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -21,6 +21,10 @@ import fr.iut.simpleplateformer.modele.LesScores;
 import fr.iut.simpleplateformer.modele.Score;
 import fr.iut.simpleplateformer.modele.logique.SauveurDeScores;
 
+/**
+ * Classe SaisieScore dère la saisie d'un score
+ * @author anviton flgaugirard
+ */
 public class SaisieScore extends AppCompatActivity {
     private TextView textViewTemps;
     private TextView textViewNiveau;
@@ -60,7 +64,11 @@ public class SaisieScore extends AppCompatActivity {
         outState.putInt("niveau",niveau);
     }
 
-
+    /**
+     * valide la saisie d'un score
+     * réaffiche le menu
+     * @param view vue du clique
+     */
     public void cliqueValiderScore(View view) {
         File file = getDir("score", 0);
         SauveurDeScores sauveurDeScores = new SauveurDeScores();

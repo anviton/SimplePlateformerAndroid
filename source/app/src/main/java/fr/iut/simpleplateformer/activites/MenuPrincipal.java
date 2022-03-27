@@ -1,4 +1,4 @@
-package fr.iut.simpleplateformer.controleurs;
+package fr.iut.simpleplateformer.activites;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -20,6 +20,9 @@ import fr.iut.simpleplateformer.modele.LesScores;
 
 import fr.iut.simpleplateformer.modele.logique.ChargeurDeScores;
 
+/**
+ * Classe MenuPrincipal gère la fenêtre du menu
+ */
 public class MenuPrincipal extends AppCompatActivity {
     private LesScores lesScores;
 
@@ -50,23 +53,39 @@ public class MenuPrincipal extends AppCompatActivity {
         super.onSaveInstanceState(outState);
     }
 
+    /**
+     * Permet de passer à la vue des scores
+     * @param view vue du clique
+     */
     public void cliqueScore(View view) {
         startActivity(passagDesScores(VoirScore.class));
     }
 
+    /**
+     * Permet de quittter l'application
+     * @param view vue du clique
+     */
     public void cliqueQuitter(View view) {
         System.exit(0);
     }
 
-
+    /**
+     * Permet de jouer au jeu
+     * @param view vue du clique
+     */
     public void cliqueJouer(View view) {
         startActivity(passagDesScores(Jeu.class));
     }
 
 
+    /**
+     * Permet de créer l'Intent avec le passage des cores
+     * @param classe activités à charger
+     * @return l'intent créé
+     */
     private Intent passagDesScores(Class classe){
         Intent monIntent = new Intent(this, classe);
-        monIntent.putExtra("lesScores", (Parcelable) lesScores);
+        monIntent.putExtra("lesScores", lesScores);
         return monIntent;
     }
 }

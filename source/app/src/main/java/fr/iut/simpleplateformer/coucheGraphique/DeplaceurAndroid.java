@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import fr.iut.simpleplateformer.modele.Boucle;
-import fr.iut.simpleplateformer.modele.ManagerJeu;
+import fr.iut.simpleplateformer.ManagerJeu;
 import fr.iut.simpleplateformer.modele.logique.Collisionneur;
 import fr.iut.simpleplateformer.modele.logique.CollisionneurClassique;
 import fr.iut.simpleplateformer.modele.logique.CollisionneurDeBombe;

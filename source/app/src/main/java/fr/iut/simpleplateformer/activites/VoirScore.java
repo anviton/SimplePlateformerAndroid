@@ -1,4 +1,4 @@
-package fr.iut.simpleplateformer.controleurs;
+package fr.iut.simpleplateformer.activites;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
@@ -10,11 +10,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import fr.iut.simpleplateformer.MonAdaptateur;
 import fr.iut.simpleplateformer.R;
 import fr.iut.simpleplateformer.modele.LesScores;
 
-
+/**
+ * Classe VoirScore gère la vue de l'affichage des scores
+ */
 public class VoirScore extends AppCompatActivity {
 
     private LesScores lesScores;

@@ -1,4 +1,4 @@
-package fr.iut.simpleplateformer;
+package fr.iut.simpleplateformer.activites;
 
 import android.view.View;
 import android.widget.TextView;
@@ -6,6 +6,12 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import fr.iut.simpleplateformer.R;
+
+/**
+ * Classe ViewHolderScore permet de gérer l'affichage d'un score de la liste des scores
+ * @author anviton flgaugirard
+ */
 public class ViewHolderScore extends RecyclerView.ViewHolder {
 
     private TextView textViewTemps;

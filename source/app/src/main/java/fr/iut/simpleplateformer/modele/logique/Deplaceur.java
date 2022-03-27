@@ -2,7 +2,7 @@ package fr.iut.simpleplateformer.modele.logique;
 
 
 import fr.iut.simpleplateformer.Observateur;
-import fr.iut.simpleplateformer.modele.ManagerJeu;
+import fr.iut.simpleplateformer.ManagerJeu;
 import fr.iut.simpleplateformer.modele.metier.Niveau;
 import fr.iut.simpleplateformer.modele.metier.Personnage;
 
