@@ -3,8 +3,7 @@ package fr.iut.simpleplateformer.modele.logique;
 
 
 import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.InputStreamReader;
+
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 

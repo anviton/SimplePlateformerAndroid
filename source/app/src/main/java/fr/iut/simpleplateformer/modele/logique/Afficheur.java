@@ -5,7 +5,7 @@ import fr.iut.simpleplateformer.modele.metier.Niveau;
 import fr.iut.simpleplateformer.modele.metier.Personnage;
 
 
-import java.util.List;
+
 
 /**
  * Classe abstraite Afficheur permet de gérer la logique d'affichage

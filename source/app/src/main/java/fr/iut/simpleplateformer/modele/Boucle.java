@@ -1,5 +1,9 @@
 package fr.iut.simpleplateformer.modele;
 
+/**
+ * Calsse Boucle représent une boucle de jeu
+ * @author anviton flgaugirard
+ */
 public class Boucle extends BoucleAbstraite{
 
     private Thread threadInterne;

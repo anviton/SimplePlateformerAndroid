@@ -9,4 +9,5 @@
     <string name="Temps">Temps :</string>
     <string name="Test">Test :</string>
     <string name="testButton">test</string>
+    <string name="valider_score">valider</string>
 </resources>

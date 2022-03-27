@@ -4,22 +4,13 @@ package fr.iut.simpleplateformer.coucheGraphique;
 import android.app.Activity;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.Color;
+
 import android.util.DisplayMetrics;
-import android.view.MotionEvent;
-import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.FrameLayout;
-import android.widget.LinearLayout;
-import android.widget.ScrollView;
-
-
-import androidx.drawerlayout.widget.DrawerLayout;
 
 import java.util.ArrayList;
 import java.util.List;
-
 
 import fr.iut.simpleplateformer.R;
 import fr.iut.simpleplateformer.modele.logique.Afficheur;
@@ -34,10 +25,10 @@ public class AfficheurAndroid extends Afficheur {
     private Activity activite;
     private DisplayMetrics tailleEcran;
     private int tailleElementAffiche;
-    private int decalage;
+    private final int decalage;
     private FrameLayout vueFenetreJeu;
     private int compteurTemps;
-    private static int MULTIPLICATEURBOUTON = 7;
+    private static final int MULTIPLICATEURBOUTON = 7;
     private List<Button> lesBoutons;
 
     public AfficheurAndroid(Activity activite, List<Button> lesBoutons) {
@@ -92,7 +83,7 @@ public class AfficheurAndroid extends Afficheur {
         compteurTemps = 0;
     }
 
-    public void mettreEnPlaceLAffichageDesBoutons(){
+    private void mettreEnPlaceLAffichageDesBoutons(){
         lesBoutons.get(0).setX(0);
         lesBoutons.get(1).setX(0);
         lesBoutons.get(0).setY(tailleEcran.heightPixels-tailleElementAffiche*MULTIPLICATEURBOUTON*2);
@@ -124,6 +115,9 @@ public class AfficheurAndroid extends Afficheur {
         return vueJeu.getTemps();
     }
 
+    /**
+     * Appelle la mise à jour de l'affichage du temps et du perso
+     */
     @Override
     public void mettreAJour(){
         mettreAjourLAffichageDuPersonnagePrincipal();

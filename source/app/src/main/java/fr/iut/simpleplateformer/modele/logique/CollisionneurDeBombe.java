@@ -54,7 +54,7 @@ public class CollisionneurDeBombe extends Collisionneur{
         boolean collisionBombe = true;
         for (int i = 0; i < niveau.getListeBlocs().size(); i++) {
             Bloc bloc = niveau.getListeBlocs().get(i);
-            if (perso.getPositionY() + 1 == bloc.getPositionY() && perso.getPositionX() == bloc.getPositionX() &&
+            if (perso.getPositionY() == bloc.getPositionY() && perso.getPositionX() == bloc.getPositionX() &&
                     bloc.getHitBox() != null && bloc.getType() == 2) {
                 collisionBombe = false;
                 //musique.playSound();

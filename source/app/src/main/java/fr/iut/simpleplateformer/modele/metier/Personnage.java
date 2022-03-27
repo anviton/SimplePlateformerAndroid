@@ -1,5 +1,9 @@
 package fr.iut.simpleplateformer.modele.metier;
 
+/**
+ * Classe Personnage stocke les informations d'un personnage
+ * @author anviton, khloichet
+ */
 public class Personnage extends Entite {
     private final String nom;
     private int nombreDeVies;
@@ -30,6 +34,10 @@ public class Personnage extends Entite {
         return message.toString();
     }
 
+    /**
+     * décrémente le nombre de vie et retourne le nombre de vies restantes
+     * @return
+     */
     public int mourir(){
         setNombreDeVies(this.nombreDeVies - 1);
         return nombreDeVies;

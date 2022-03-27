@@ -3,7 +3,6 @@ package fr.iut.simpleplateformer.controleurs;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Parcelable;
-import android.util.Log;
 import android.view.View;
 
 import androidx.annotation.NonNull;
@@ -13,18 +12,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
+
 import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
 
 import fr.iut.simpleplateformer.R;
-import fr.iut.simpleplateformer.TestDeplacement;
 import fr.iut.simpleplateformer.modele.LesScores;
-import fr.iut.simpleplateformer.modele.Score;
+
 import fr.iut.simpleplateformer.modele.logique.ChargeurDeScores;
-import fr.iut.simpleplateformer.modele.logique.SauveurDeScores;
 
 public class MenuPrincipal extends AppCompatActivity {
     private LesScores lesScores;
@@ -37,7 +31,7 @@ public class MenuPrincipal extends AppCompatActivity {
             lesScores = (LesScores) savedInstanceState.get("lesScores");
         }
         else {
-            InputStream inputStream = null;
+            InputStream inputStream;
             try {
                 inputStream = new FileInputStream(file.getAbsolutePath() + "/score.txt");
             } catch (FileNotFoundException e) {
@@ -47,15 +41,6 @@ public class MenuPrincipal extends AppCompatActivity {
             lesScores = chargeurDeScores.charger(inputStream);
         }
         setContentView(R.layout.menuprincipal);
-
-        /// la sauvegarde des scores doit être déplacée, elle doit être faite après
-        // la saisie d'un nouveau score
-        SauveurDeScores sauveurDeScores = new SauveurDeScores();
-        try {
-            sauveurDeScores.sauver(lesScores, new FileOutputStream(file.getAbsolutePath() + "/score.txt"));
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
     }
 
 
@@ -78,10 +63,6 @@ public class MenuPrincipal extends AppCompatActivity {
         startActivity(passagDesScores(Jeu.class));
     }
 
-    public void cliqueBoutonTest(View view){
-        Intent monIntent = new Intent(this, TestDeplacement.class);
-        startActivity(monIntent);
-    }
 
     private Intent passagDesScores(Class classe){
         Intent monIntent = new Intent(this, classe);

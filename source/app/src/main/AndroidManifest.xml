@@ -20,7 +20,6 @@
         <activity android:name=".controleurs.VoirScore"/>
         <activity android:name=".controleurs.SaisieScore"/>
         <activity android:name=".controleurs.Jeu"/>
-        <activity android:name=".TestDeplacement"/>
     </application>
 
 </manifest>

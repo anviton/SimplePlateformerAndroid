@@ -3,6 +3,10 @@ package fr.iut.simpleplateformer.modele;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+/**
+ * Classe Score stocke les infos d'un score
+ * @author anviton flgaugirard
+ */
 public class Score implements Parcelable {
 
     private String nom;

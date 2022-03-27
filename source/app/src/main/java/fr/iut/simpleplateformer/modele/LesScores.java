@@ -1,8 +1,6 @@
 package fr.iut.simpleplateformer.modele;
 
 
-import static java.lang.System.out;
-
 import android.os.Parcel;
 import android.os.Parcelable;
 

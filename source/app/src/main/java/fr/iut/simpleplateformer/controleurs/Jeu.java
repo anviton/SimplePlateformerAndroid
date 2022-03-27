@@ -2,6 +2,7 @@ package fr.iut.simpleplateformer.controleurs;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.content.res.AssetManager;
 import android.content.res.Resources;
 import android.os.Bundle;
@@ -46,6 +47,7 @@ public class Jeu extends AppCompatActivity {
         managerJeu = new ManagerJeu(niveau, this,lesScores);
         managerJeu.initialiserLeJeu();
         managerJeu.lancerLeJeu();
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
     }
 
     @Override

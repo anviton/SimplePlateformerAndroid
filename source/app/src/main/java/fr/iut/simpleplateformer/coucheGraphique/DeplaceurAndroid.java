@@ -11,9 +11,12 @@ import fr.iut.simpleplateformer.modele.logique.CollisionneurDeBombe;
 import fr.iut.simpleplateformer.modele.logique.Deplaceur;
 import fr.iut.simpleplateformer.modele.metier.Personnage;
 
+/**
+ * DeplaceurAndroid permet de gérer le déplacement d'un personnage
+ * @author anviton flgaugirard
+ */
 public class DeplaceurAndroid extends Deplaceur {
     private final List<Collisionneur> collisionneurs;
-    private float vitesseChute = 8f;
     private int compt;
     private boolean saut;
 
@@ -24,10 +27,6 @@ public class DeplaceurAndroid extends Deplaceur {
         this.managerJeu = managerJeu;
     }
 
-    @Override
-    public void deplacerPersonnagePrincipal(Personnage perso) {
-
-    }
 
     @Override
     public void gererLaGravite(Personnage perso) {
@@ -46,17 +45,15 @@ public class DeplaceurAndroid extends Deplaceur {
             perso.setPositionY(niveau.getPositionYDepart());
         }
         if (collisions.get(0)) {
-            if(compt >= Boucle.TPSRAFF /vitesseChute) {
+            float vitesseChute = 8f;
+            if(compt >= Boucle.TPSRAFF / vitesseChute) {
                 perso.setPositionY(perso.getPositionY() + 1);
                 compt = 0;
             }
         }
     }
 
-    /**
-     * sauter gère le saut d'un personnage
-     * @param perso personnage a regarder pour sauter
-     */
+    @Override
     public void sauter(Personnage perso){
         List<Boolean> collisionsSaut = collisionneurs.get(0).verifcollisionSaut(perso, niveau);
         int tailleSaut = 0;
@@ -71,11 +68,7 @@ public class DeplaceurAndroid extends Deplaceur {
         }
     }
 
-
-    /**
-     * seDeplacerAGauche gère le déplacement du perso a gauche
-     * @param perso personnage a regarder pour le déplacer a gauche
-     */
+    @Override
     public void seDeplacerAGauche(Personnage perso){
         List<Boolean>collisions = new ArrayList<>();
         for(Collisionneur collisionneur : collisionneurs){
@@ -92,11 +85,7 @@ public class DeplaceurAndroid extends Deplaceur {
         }
     }
 
-    /**
-     * seDeplacerADroite gère le déplacement du perso a droite
-     * @param perso personnage a regarder pour le déplacer a droite
-     */
-
+    @Override
     public void seDeplacerADroite(Personnage perso){
         List<Boolean>collisions = new ArrayList<>();
         for(Collisionneur collisionneur : collisionneurs){

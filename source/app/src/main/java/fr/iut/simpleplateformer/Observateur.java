@@ -4,7 +4,7 @@ import fr.iut.simpleplateformer.modele.BoucleAbstraite;
 
 public abstract class Observateur {
 
-    private BoucleAbstraite boucle;
+    protected BoucleAbstraite boucle;
 
     public abstract void mettreAJour();
 }

@@ -48,7 +48,7 @@ public class SaisieScore extends AppCompatActivity {
         textViewTemps = findViewById(R.id.textviewtemps);
         textViewNiveau = findViewById(R.id.textniveau);
         editText = findViewById(R.id.editTextTextPersonName);
-        textViewTemps.setText("Score : " + String.valueOf(temps));
+        textViewTemps.setText("Score : " + temps);
         textViewNiveau.setText("Niveau : " + niveau);
     }
 

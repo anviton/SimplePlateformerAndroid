@@ -13,23 +13,19 @@ public class Niveau {
     private final int positionYDepart;
     private int hauteurNiveau;
     private int largeurNiveau;
-    private final String cheminFond;
     private final List<Bloc> listeBlocs;
 
 
     /**
      * Constructeur Niveau
-     * @param positions
-     * @param cheminFond
-     * @param listeBlocs
+     * @param positions les postions de départ et d'arrivee du niveau
+     * @param listeBlocs les bloc du niveau
      */
-    public Niveau(List<Integer> positions,
-                  String cheminFond, List<Bloc> listeBlocs) {
+    public Niveau(List<Integer> positions, List<Bloc> listeBlocs) {
         this.positionXDepart = positions.get(0);
         this.positionYDepart = positions.get(1);
         this.positionXArrivee = positions.get(2);
         this.positionYArrivee = positions.get(3);
-        this.cheminFond = cheminFond;
         this.listeBlocs = listeBlocs;
     }
 
@@ -51,10 +47,6 @@ public class Niveau {
 
     public void setLargeurNiveau(int largeurNiveau) {
         this.largeurNiveau = largeurNiveau;
-    }
-
-    public String getCheminFond() {
-        return cheminFond;
     }
 
     public int getPositionXArrivee() {

@@ -2,7 +2,7 @@ package fr.iut.simpleplateformer.controleurs;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
-import android.util.Log;
+
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -10,13 +10,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.io.InputStream;
-
 import fr.iut.simpleplateformer.MonAdaptateur;
 import fr.iut.simpleplateformer.R;
 import fr.iut.simpleplateformer.modele.LesScores;
-import fr.iut.simpleplateformer.modele.Score;
-import fr.iut.simpleplateformer.modele.logique.ChargeurDeScores;
+
 
 public class VoirScore extends AppCompatActivity {
 
@@ -40,7 +37,8 @@ public class VoirScore extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         recyclerView = findViewById(R.id.recyclerview);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
+        recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL,
+                false));
         recyclerView.setAdapter(new MonAdaptateur(lesScores, this));
     }
 

@@ -26,13 +26,11 @@ public class ChargeurNiveau {
         List<Integer> listePositions = new ArrayList<>();
         int i = 0, j = 0;
         String elementDeSeparation = ",";
-        String cheminFond = null;
         try {
             InputStreamReader lecteur = new InputStreamReader(chemin);
             //FileReader lecteur = new FileReader(chemin);
             BufferedReader lecteurDeTuile = new BufferedReader(lecteur);
             String ligne;
-            cheminFond = lecteurDeTuile.readLine();
 
             String[] positions = lecteurDeTuile.readLine().split(elementDeSeparation);
             for (String pos : positions){
@@ -58,7 +56,7 @@ public class ChargeurNiveau {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        n = new Niveau(listePositions, cheminFond, listeDeBlocs);
+        n = new Niveau(listePositions, listeDeBlocs);
         if (!listeDeBlocs.isEmpty()) {
             Bloc bloc = listeDeBlocs.get(listeDeBlocs.size() - 1);
             n.setHauteurNiveau(bloc.getPositionY());
